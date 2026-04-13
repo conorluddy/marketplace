@@ -1,0 +1,5 @@
+{
+  "name": "swift-accessibility-plugin",
+  "description": "Audit, fix, and initialise SwiftUI accessibility modifiers so your app is navigable by both VoiceOver users and AI agents",
+  "version": "1.0.0"
+}

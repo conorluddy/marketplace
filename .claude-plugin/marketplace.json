@@ -8,6 +8,11 @@
       "name": "github-labels-plugin",
       "source": "./plugins/github-labels-plugin",
       "description": "Set up structured GitHub issue labels for any repository — priority, clarity, risk, blast radius, size, parallelism, sequencing, and type"
+    },
+    {
+      "name": "swift-accessibility-plugin",
+      "source": "./plugins/swift-accessibility-plugin",
+      "description": "Audit, fix, and initialise SwiftUI accessibility modifiers so your app is navigable by both VoiceOver users and AI agents"
     }
   ]
 }
