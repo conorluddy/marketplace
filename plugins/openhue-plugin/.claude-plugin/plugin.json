@@ -1,0 +1,5 @@
+{
+  "name": "openhue-plugin",
+  "description": "Control Philips Hue lights from the CLI — brightness, color, scenes, and automation via openhue",
+  "version": "1.0.0"
+}

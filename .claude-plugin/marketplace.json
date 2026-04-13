@@ -23,6 +23,11 @@
       "name": "sonos-cli-plugin",
       "source": "./plugins/sonos-cli-plugin",
       "description": "Control Sonos speakers from the CLI — playback, volume, grouping, queue management, and music search"
+    },
+    {
+      "name": "openhue-plugin",
+      "source": "./plugins/openhue-plugin",
+      "description": "Control Philips Hue lights from the CLI — brightness, color, scenes, and automation via openhue"
     }
   ]
 }

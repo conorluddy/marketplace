@@ -1,0 +1,30 @@
+{
+  "skill_name": "openhue",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Turn on the kitchen and living room lights to 75% brightness",
+      "expected_output": "Both rooms turn on with 75% brightness, command returns success status"
+    },
+    {
+      "id": 2,
+      "prompt": "Set the eatery to a warm color at 40% brightness with a 2 second transition",
+      "expected_output": "Eatery lights adjust to warm temperature, 40% brightness, with smooth 2-second transition"
+    },
+    {
+      "id": 3,
+      "prompt": "Check what lights are currently on, then turn off only the kitchen ones",
+      "expected_output": "Lists current state of all lights, then turns off kitchen lights only"
+    },
+    {
+      "id": 4,
+      "prompt": "I want to control the three kitchen spots - set spot 1 to 30%, spot 2 to 60%, and spot 3 to 90%",
+      "expected_output": "Each kitchen spot set to its specified brightness level individually"
+    },
+    {
+      "id": 5,
+      "prompt": "Turn off the driveway, garden, and office lights",
+      "expected_output": "All three rooms turn off, command returns success"
+    }
+  ]
+}

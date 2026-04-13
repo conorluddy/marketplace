@@ -1,0 +1,125 @@
+{
+  "skill_name": "openhue",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "batch-room-brightness",
+      "prompt": "Turn on the kitchen and living room lights to 75% brightness",
+      "expected_output": "Both rooms turn on with 75% brightness, command returns success status",
+      "assertions": [
+        {
+          "name": "uses_batch_syntax",
+          "description": "Command uses room batch syntax (multiple room names in single openhue command)"
+        },
+        {
+          "name": "sets_brightness_75",
+          "description": "Brightness is set to 75%"
+        },
+        {
+          "name": "turns_on_both_rooms",
+          "description": "Kitchen and Living room lights are turned on"
+        },
+        {
+          "name": "succeeds_without_error",
+          "description": "Command completes successfully without error messages"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "warm-color-transition",
+      "prompt": "Set the eatery to a warm color at 40% brightness with a 2 second transition",
+      "expected_output": "Eatery lights adjust to warm temperature, 40% brightness, with smooth 2-second transition",
+      "assertions": [
+        {
+          "name": "sets_warm_temperature",
+          "description": "Uses warm color temperature (high mirek value, 350+)"
+        },
+        {
+          "name": "sets_brightness_40",
+          "description": "Brightness is set to 40%"
+        },
+        {
+          "name": "uses_transition_time",
+          "description": "Includes --transition-time 2s parameter"
+        },
+        {
+          "name": "targets_eatery",
+          "description": "Targets the Eatery room specifically"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "query-then-control",
+      "prompt": "Check what lights are currently on, then turn off only the kitchen ones",
+      "expected_output": "Lists current state of all lights, then turns off kitchen lights only",
+      "assertions": [
+        {
+          "name": "queries_state_first",
+          "description": "Uses openhue get lights or openhue get rooms to check state"
+        },
+        {
+          "name": "turns_off_kitchen_only",
+          "description": "Uses kitchen-specific lights/room name in turn-off command"
+        },
+        {
+          "name": "selective_control",
+          "description": "Does not turn off lights outside the kitchen"
+        },
+        {
+          "name": "shows_both_steps",
+          "description": "Output shows both query and control commands"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "eval_name": "individual-light-levels",
+      "prompt": "I want to control the three kitchen spots - set spot 1 to 30%, spot 2 to 60%, and spot 3 to 90%",
+      "expected_output": "Each kitchen spot set to its specified brightness level individually",
+      "assertions": [
+        {
+          "name": "three_separate_commands",
+          "description": "Uses three individual commands for the three spots"
+        },
+        {
+          "name": "spot1_at_30",
+          "description": "Kitchen 1 (or Spot 1) set to 30% brightness"
+        },
+        {
+          "name": "spot2_at_60",
+          "description": "Kitchen 2 (or Spot 2) set to 60% brightness"
+        },
+        {
+          "name": "spot3_at_90",
+          "description": "Kitchen 3 (or Spot 3) set to 90% brightness"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "eval_name": "batch-room-off",
+      "prompt": "Turn off the driveway, garden, and office lights",
+      "expected_output": "All three rooms turn off, command returns success",
+      "assertions": [
+        {
+          "name": "uses_batch_syntax",
+          "description": "Uses batch syntax with multiple rooms in single command if possible"
+        },
+        {
+          "name": "turns_off_driveway",
+          "description": "Driveway lights are turned off"
+        },
+        {
+          "name": "turns_off_garden",
+          "description": "Garden lights are turned off"
+        },
+        {
+          "name": "turns_off_office",
+          "description": "Office lights are turned off"
+        }
+      ]
+    }
+  ]
+}
