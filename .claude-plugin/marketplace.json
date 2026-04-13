@@ -28,6 +28,11 @@
       "name": "openhue-plugin",
       "source": "./plugins/openhue-plugin",
       "description": "Control Philips Hue lights from the CLI — brightness, color, scenes, and automation via openhue"
+    },
+    {
+      "name": "and-then-plugin",
+      "source": "./plugins/and-then-plugin",
+      "description": "Ambiguity-first planning — identify and resolve unknowns before committing to a plan"
     }
   ]
 }
