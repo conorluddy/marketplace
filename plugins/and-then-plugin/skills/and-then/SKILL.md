@@ -1,11 +1,19 @@
 ---
 name: and-then
-description: "Ambiguity-first planning — exhaustively identify and resolve unknowns before committing to a plan. Gathers project context silently (CLAUDE.md, recent PRs, codebase), extracts every ambiguity categorized as blocking or refinement, resolves what it can from code, then asks the user targeted questions until blocking ambiguity hits zero. Outputs issues, epics, or plan files matched to the scope of the work. Use this skill whenever the user wants to plan a feature, scope out work, think through a problem before building, asks 'what would it take to...', says 'let's plan', 'scope this', 'think this through', 'what are we missing', 'before we start', or describes something they want to build and you sense there are unresolved questions that would lead to rework. Also use when a request feels underspecified and jumping straight to implementation would be premature."
+description: "Ambiguity-first planning — identify and resolve unknowns before committing to a plan. Use when the user wants to plan, scope, or think through work before building."
 ---
 
 # And Then — Ambiguity-First Planning
 
 No plan survives unasked questions. This skill exhausts ambiguity before committing to a plan — preventing rework, missed edge cases, and scope surprises.
+
+## When to Use
+
+Use this skill when the user wants to plan a feature, scope out work, or think through a problem before building. Trigger phrases include "what would it take to...", "let's plan", "scope this", "think this through", "what are we missing", "before we start", or when the user describes something they want to build and there are unresolved questions that would lead to rework. Also use when a request feels underspecified and jumping straight to implementation would be premature.
+
+## How It Works
+
+Gathers project context silently (CLAUDE.md, recent PRs, codebase), extracts every ambiguity categorized as blocking or refinement, resolves what it can from code, then asks the user targeted questions until blocking ambiguity hits zero. Outputs issues, epics, or plan files matched to the scope of the work.
 
 ## Why This Exists
 
