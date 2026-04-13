@@ -1,0 +1,112 @@
+{
+  "evals": [
+    {
+      "id": "sonos-play-spotify",
+      "description": "Play jazz on the kitchen Sonos",
+      "input": "Play some jazz on the kitchen Sonos",
+      "expected_command": "sonos play spotify \"jazz\" --name \"Kitchen\"",
+      "expected_output": "Should generate Spotify playback command for Kitchen speaker",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "sonos-set-volume",
+      "description": "Set TV speaker volume to 50",
+      "input": "Turn the TV speaker up to 50",
+      "expected_command": "sonos volume set 50 --name \"TV\"",
+      "expected_output": "Should set TV speaker volume to 50 and confirm",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "sonos-status-default",
+      "description": "Check what's playing (default speaker)",
+      "input": "What's playing on Sonos?",
+      "expected_command": "sonos status --name \"Kitchen\"",
+      "expected_output": "Should query Kitchen speaker status and display track info",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "sonos-pause",
+      "description": "Pause playback on default speaker",
+      "input": "Pause Sonos",
+      "expected_command": "sonos pause --name \"Kitchen\"",
+      "expected_output": "Should pause Kitchen speaker",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "sonos-group-party",
+      "description": "Group all speakers together",
+      "input": "Group my speakers together",
+      "expected_command": "sonos group party --to \"Kitchen\"",
+      "expected_output": "Should group all speakers in party mode with Kitchen as coordinator",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "sonos-next-track",
+      "description": "Skip to next track",
+      "input": "Skip track on Sonos",
+      "expected_command": "sonos next --name \"Kitchen\"",
+      "expected_output": "Should skip to next track on Kitchen speaker",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "sonos-list-speakers",
+      "description": "Discover all speakers on network",
+      "input": "Show me my Sonos speakers",
+      "expected_command": "sonos discover",
+      "expected_output": "Should list all speakers with IPs and names",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "sonos-mute",
+      "description": "Mute a speaker",
+      "input": "Mute the kitchen speaker",
+      "expected_command": "sonos mute on --name \"Kitchen\"",
+      "expected_output": "Should mute Kitchen speaker",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "sonos-ungroup",
+      "description": "Ungroup a speaker from group",
+      "input": "Solo the TV speaker",
+      "expected_command": "sonos group solo --name \"TV\"",
+      "expected_output": "Should ungroup TV from any group and play independently",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "sonos-favorite",
+      "description": "Play a saved favorite",
+      "input": "Play my morning playlist on Sonos",
+      "expected_command": "sonos favorites open \"morning playlist\" --name \"Kitchen\"",
+      "expected_output": "Should play saved favorite 'morning playlist' on Kitchen",
+      "trigger_required": true,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "no-trigger-generic",
+      "description": "Generic music request without Sonos mention",
+      "input": "Play some music",
+      "expected_command": null,
+      "expected_output": "Should NOT trigger the skill (no Sonos or speaker mentioned)",
+      "trigger_required": false,
+      "skill": "sonos-cli"
+    },
+    {
+      "id": "no-trigger-other-device",
+      "description": "Music request on different device",
+      "input": "Play jazz on my Spotify app",
+      "expected_command": null,
+      "expected_output": "Should NOT trigger the skill (Spotify app, not Sonos)",
+      "trigger_required": false,
+      "skill": "sonos-cli"
+    }
+  ]
+}

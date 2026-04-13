@@ -18,6 +18,11 @@
       "name": "liquid-glass-plugin",
       "source": "./plugins/liquid-glass-plugin",
       "description": "Implement iOS 26 Liquid Glass effects in SwiftUI and UIKit — API reference, design rules, and code patterns"
+    },
+    {
+      "name": "sonos-cli-plugin",
+      "source": "./plugins/sonos-cli-plugin",
+      "description": "Control Sonos speakers from the CLI — playback, volume, grouping, queue management, and music search"
     }
   ]
 }

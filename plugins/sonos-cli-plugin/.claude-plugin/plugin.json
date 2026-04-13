@@ -1,0 +1,5 @@
+{
+  "name": "sonos-cli-plugin",
+  "description": "Control Sonos speakers from the CLI — playback, volume, grouping, queue management, and music search",
+  "version": "1.0.0"
+}
