@@ -1,6 +1,11 @@
 # conors-skills
 
-A Claude Code plugin marketplace for distributing reusable skills.
+My Claude Code plugin marketplace for distributing reusable skills.
+
+```
+/plugin marketplace add https://github.com/conorluddy/Skills
+```
+
 
 ## Plugins
 
