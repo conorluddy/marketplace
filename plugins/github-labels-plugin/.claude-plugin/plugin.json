@@ -1,0 +1,5 @@
+{
+  "name": "github-labels-plugin",
+  "description": "Set up structured GitHub issue labels for any repository — priority, clarity, risk, blast radius, size, parallelism, sequencing, and type",
+  "version": "1.0.0"
+}

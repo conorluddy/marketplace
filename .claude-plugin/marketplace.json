@@ -3,5 +3,11 @@
   "owner": {
     "name": "Conor Luddy"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "github-labels-plugin",
+      "source": "./plugins/github-labels-plugin",
+      "description": "Set up structured GitHub issue labels for any repository — priority, clarity, risk, blast radius, size, parallelism, sequencing, and type"
+    }
+  ]
 }
