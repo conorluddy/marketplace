@@ -13,6 +13,11 @@
       "name": "swift-accessibility-plugin",
       "source": "./plugins/swift-accessibility-plugin",
       "description": "Audit, fix, and initialise SwiftUI accessibility modifiers so your app is navigable by both VoiceOver users and AI agents"
+    },
+    {
+      "name": "liquid-glass-plugin",
+      "source": "./plugins/liquid-glass-plugin",
+      "description": "Implement iOS 26 Liquid Glass effects in SwiftUI and UIKit — API reference, design rules, and code patterns"
     }
   ]
 }

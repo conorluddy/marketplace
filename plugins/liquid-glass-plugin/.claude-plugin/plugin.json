@@ -1,0 +1,5 @@
+{
+  "name": "liquid-glass-plugin",
+  "description": "Implement iOS 26 Liquid Glass effects in SwiftUI and UIKit — API reference, design rules, and code patterns",
+  "version": "1.0.0"
+}
