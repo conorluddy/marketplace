@@ -1,0 +1,26 @@
+{
+  "skill_name": "team-work",
+  "evals": [
+    {
+      "id": 1,
+      "name": "ios-feature-fanout",
+      "prompt": "Over the last while we've talked through three things I want done on the Grapla iOS app: (a) add empty-state cards to the Base tab streak section when the user has logged no sessions yet, (b) rename StreakService to StreakTracker everywhere in grapla/, and (c) audit the Atlas tab's position detail view for hardcoded font sizes and replace them with FontSize tokens. Use a team to split this up.",
+      "expected_output": "A plan with 3 atomic tasks, model tiers assigned (rename = haiku, empty state = sonnet, token audit = sonnet or opus), specialist subagents preferred (bjj-ios-engineer-inherit or ios-swift-expert, grapla-ui-reviewer for the audit), dependency waves with rename first (T1) then the others (W2) since rename touches many files that the empty state work may reference. No same-file parallel edits.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "mixed-domain-fanout",
+      "prompt": "I've been chatting with you about a bunch of stuff. Can you team this up? 1) Write a new Zod schema for a 'grip_strength' field in the position enrichment schema. 2) Summarise what's in data/prompts/TONE.md. 3) Review the current PR on this branch for CODESTYLE.md violations. 4) Figure out the right architecture for a new 'favourites' feature that crosses positions, techniques, and submissions.",
+      "expected_output": "4 tasks with differentiated tiers: summary = haiku (S), Zod schema = sonnet (M), PR code style review = sonnet or the codestyle-planner agent (M), favourites architecture = opus (L). All four are independent and can run in Wave 1 in parallel since they touch different files. Specialists used where they fit: bjj-data-engineer-* for the schema, codestyle-planner for the review, opus general-purpose or a planning agent for the architecture.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "shared-file-serialization",
+      "prompt": "Let's use agent teams on this. I want to (1) add a new case to the Perspective enum in grapla/Shared/Models/Perspective.swift, (2) update every switch statement across grapla/ that handles Perspective to cover the new case, and (3) write tests for the new case. Get a team on it.",
+      "expected_output": "Tasks correctly serialized across waves because all three touch the Perspective type and its consumers. T1 (add case) must land first in Wave 1. T2 (update switches) in Wave 2 since it depends on T1. T3 (tests) in Wave 3 since tests reference both. Not all parallelized into one wave. Model tiers lean sonnet; specialist is ios-swift-expert or bjj-ios-engineer-inherit. Plan explicitly notes the serialization reason.",
+      "files": []
+    }
+  ]
+}
