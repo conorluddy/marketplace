@@ -18,6 +18,7 @@ My Claude Code plugin marketplace for distributing reusable skills.
 | **openhue** | Control Philips Hue lights — brightness, color, scenes, and automation |
 | **and-then** | Ambiguity-first planning — resolve unknowns before committing to implementation ![69cf40c1-9f3a-4a06-9ea2-eb3097b9c6c6_text](https://github.com/user-attachments/assets/382b940d-f95d-44f7-8498-44205ab64861)
  |
+| **team-work** | Decompose a session's JTBD into a parallelizable agent-team plan — tiered models (haiku/sonnet/opus), specialist subagents, dependency waves |
 
 ## Install
 
@@ -32,6 +33,7 @@ Add the marketplace, then install individual plugins:
 /plugin install sonos-cli-plugin
 /plugin install openhue-plugin
 /plugin install and-then-plugin
+/plugin install team-work-plugin
 ```
 
 ## Adding a plugin

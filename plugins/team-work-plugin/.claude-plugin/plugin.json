@@ -1,0 +1,5 @@
+{
+  "name": "team-work-plugin",
+  "description": "Decompose a session's jobs-to-be-done into a parallelizable task plan for an agent team — tiered models (haiku/sonnet/opus), specialist subagents, dependency waves with no shared-file conflicts",
+  "version": "1.0.0"
+}
