@@ -38,6 +38,11 @@
       "name": "team-work-plugin",
       "source": "./plugins/team-work-plugin",
       "description": "Decompose a session's JTBD into a parallelizable agent-team plan — tiered models, specialist subagents, dependency waves"
+    },
+    {
+      "name": "code-review-plugin",
+      "source": "./plugins/code-review-plugin",
+      "description": "Review code against a style guide focused on progressive disclosure, explicit contracts, agentic patterns, and token economics — severity-grouped findings with file:line refs and concrete fixes"
     }
   ]
 }

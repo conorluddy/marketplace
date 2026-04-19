@@ -1,0 +1,5 @@
+{
+  "name": "code-review-plugin",
+  "description": "Review code against a style guide focused on progressive disclosure, explicit contracts, agentic patterns, and token economics — produces severity-grouped findings with file:line refs and concrete fixes",
+  "version": "1.0.0"
+}
