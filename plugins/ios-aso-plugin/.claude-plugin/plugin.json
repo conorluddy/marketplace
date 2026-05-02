@@ -1,0 +1,5 @@
+{
+  "name": "ios-aso-plugin",
+  "description": "Generate paste-ready English (U.S.) App Store Optimization metadata (ASO.md) for an iOS app by scanning its Swift/SwiftUI codebase — App Name, Subtitle, Keywords, Promotional Text, Description, category, screenshot captions, IAP names, and a research-notes appendix",
+  "version": "1.0.0"
+}
