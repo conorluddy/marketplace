@@ -1,0 +1,9 @@
+{
+  "name": "x-twitter-scraper-plugin",
+  "description": "Use Xquik for X/Twitter search, exports, monitoring, webhooks, MCP, SDKs, and confirmation-gated actions",
+  "version": "1.0.0",
+  "author": {
+    "name": "Xquik-dev",
+    "url": "https://github.com/Xquik-dev"
+  }
+}

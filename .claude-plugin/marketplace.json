@@ -3,11 +3,14 @@
   "owner": {
     "name": "Conor Luddy"
   },
+  "metadata": {
+    "description": "Reusable Claude Code plugins for development, accessibility, automation, planning, review, and agent workflows"
+  },
   "plugins": [
     {
       "name": "github-labels-plugin",
       "source": "./plugins/github-labels-plugin",
-      "description": "Set up structured GitHub issue labels for any repository — priority, clarity, risk, blast radius, size, parallelism, sequencing, and type"
+      "description": "Set up structured GitHub issue labels for any repository - priority, clarity, risk, blast radius, size, parallelism, sequencing, and type"
     },
     {
       "name": "swift-accessibility-plugin",
@@ -17,37 +20,42 @@
     {
       "name": "liquid-glass-plugin",
       "source": "./plugins/liquid-glass-plugin",
-      "description": "Implement iOS 26 Liquid Glass effects in SwiftUI and UIKit — API reference, design rules, and code patterns"
+      "description": "Implement iOS 26 Liquid Glass effects in SwiftUI and UIKit - API reference, design rules, and code patterns"
     },
     {
       "name": "sonos-cli-plugin",
       "source": "./plugins/sonos-cli-plugin",
-      "description": "Control Sonos speakers from the CLI — playback, volume, grouping, queue management, and music search"
+      "description": "Control Sonos speakers from the CLI - playback, volume, grouping, queue management, and music search"
     },
     {
       "name": "openhue-plugin",
       "source": "./plugins/openhue-plugin",
-      "description": "Control Philips Hue lights from the CLI — brightness, color, scenes, and automation via openhue"
+      "description": "Control Philips Hue lights from the CLI - brightness, color, scenes, and automation via openhue"
+    },
+    {
+      "name": "x-twitter-scraper-plugin",
+      "source": "./plugins/x-twitter-scraper-plugin",
+      "description": "Use Xquik for X/Twitter search, exports, monitoring, webhooks, MCP, SDKs, and confirmation-gated actions"
     },
     {
       "name": "and-then-plugin",
       "source": "./plugins/and-then-plugin",
-      "description": "Ambiguity-first planning — identify and resolve unknowns before committing to a plan"
+      "description": "Ambiguity-first planning - identify and resolve unknowns before committing to a plan"
     },
     {
       "name": "team-work-plugin",
       "source": "./plugins/team-work-plugin",
-      "description": "Decompose a session's JTBD into a parallelizable agent-team plan — tiered models, specialist subagents, dependency waves"
+      "description": "Decompose a session's JTBD into a parallelizable agent-team plan - tiered models, specialist subagents, dependency waves"
     },
     {
       "name": "code-review-plugin",
       "source": "./plugins/code-review-plugin",
-      "description": "Review code against a style guide focused on progressive disclosure, explicit contracts, agentic patterns, and token economics — severity-grouped findings with file:line refs and concrete fixes"
+      "description": "Review code against a style guide focused on progressive disclosure, explicit contracts, agentic patterns, and token economics - severity-grouped findings with file:line refs and concrete fixes"
     },
     {
       "name": "ios-aso-plugin",
       "source": "./plugins/ios-aso-plugin",
-      "description": "Generate paste-ready English (U.S.) App Store Optimization metadata (ASO.md) for an iOS app by scanning its Swift/SwiftUI codebase — App Name, Subtitle, Keywords, Promotional Text, Description, category, screenshot captions, IAP names, and research notes"
+      "description": "Generate paste-ready English (U.S.) App Store Optimization metadata (ASO.md) for an iOS app by scanning its Swift/SwiftUI codebase - App Name, Subtitle, Keywords, Promotional Text, Description, category, screenshot captions, IAP names, and research notes"
     }
   ]
 }
