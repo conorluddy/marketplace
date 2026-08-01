@@ -1,5 +1,3 @@
-# conors-skills
-
 My Claude Code plugin marketplace for distributing reusable skills.
 
 ```
