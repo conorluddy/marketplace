@@ -3,7 +3,7 @@
 My Claude Code plugin marketplace for distributing reusable skills.
 
 ```
-/plugin marketplace add https://github.com/conorluddy/Skills
+/plugin marketplace add https://github.com/conorluddy/marketplace
 ```
 
 
@@ -28,7 +28,7 @@ My Claude Code plugin marketplace for distributing reusable skills.
 Add the marketplace, then install individual plugins:
 
 ```bash
-/plugin marketplace add https://github.com/conorluddy/Skills
+/plugin marketplace add https://github.com/conorluddy/marketplace
 
 /plugin install github-labels-plugin
 /plugin install swift-accessibility-plugin
