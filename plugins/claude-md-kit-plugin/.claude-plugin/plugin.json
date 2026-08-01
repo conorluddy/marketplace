@@ -1,0 +1,5 @@
+{
+  "name": "claude-md-kit-plugin",
+  "description": "Composable, stack-agnostic prompt segments for CLAUDE.md — copy-paste modules, or let the skill assemble a project CLAUDE.md from them",
+  "version": "0.1.0"
+}
