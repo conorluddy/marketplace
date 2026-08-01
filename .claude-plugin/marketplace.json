@@ -53,6 +53,11 @@
       "name": "ios-aso-plugin",
       "source": "./plugins/ios-aso-plugin",
       "description": "Generate paste-ready English (U.S.) App Store Optimization metadata (ASO.md) for an iOS app by scanning its Swift/SwiftUI codebase — App Name, Subtitle, Keywords, Promotional Text, Description, category, screenshot captions, IAP names, and research notes"
+    },
+    {
+      "name": "claude-md-modules-plugin",
+      "source": "./plugins/claude-md-modules-plugin",
+      "description": "Composable, stack-agnostic prompt segments for CLAUDE.md — copy-paste modules, or let the skill assemble a project CLAUDE.md from them (scaffold — module library not yet populated)"
     }
   ]
 }
