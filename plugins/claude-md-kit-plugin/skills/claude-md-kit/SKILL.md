@@ -1,9 +1,9 @@
 ---
-name: claude-md-modules
+name: claude-md-kit
 description: Compose or extend a project's CLAUDE.md from a library of stack-agnostic, composable prompt-segment modules (naming, error handling, testing, agentic patterns, a condensed spec-speak, etc.) stored as standalone files under references/. Use this skill whenever the user wants to bootstrap a new CLAUDE.md, add a specific convention module to an existing one, or audit a CLAUDE.md against the standard module set. Also use when the user says "compose a CLAUDE.md", "give me a starter CLAUDE.md", "add the [topic] module", or "what conventions are we missing".
 ---
 
-# CLAUDE.md Modules
+# CLAUDE.md Kit
 
 A library of short, stack-agnostic prompt segments — each one a self-contained `.md` file under `references/` covering one convention (naming, error handling, testing, etc.). Modules work two ways: paste one directly into a project's `CLAUDE.md`, or ask this skill to assemble several into a coherent file.
 
