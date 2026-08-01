@@ -83,7 +83,7 @@ A requirement that needs more than ~3 preconditions, or that enumerates many com
 
 ### Modal keywords
 
-Adopt RFC 2119 wholesale: **MUST / MUST NOT / SHOULD / SHOULD NOT / MAY**. Exactly one capitalized keyword per requirement; capitalized means normative, lowercase "must/should" elsewhere is ordinary prose. Don't use "shall". This single convention makes requirements mechanically countable and frees the rest of the doc to read naturally.
+Adopt RFC 2119 wholesale: **MUST / MUST NOT / SHOULD / SHOULD NOT / MAY**. Exactly one capitalized keyword per requirement; capitalized means normative, lowercase "must/should" elsewhere is ordinary prose. Don't use "shall". This single convention makes requirements mechanically countable and frees the rest of the doc to read naturally. Watch for a second keyword creeping into the same statement — "MUST retain the file … and MAY delete it thereafter", or a semicolon chaining two MUSTs — that's two requirements wearing one ID; split them.
 
 ### The rules
 
