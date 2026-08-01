@@ -1,0 +1,47 @@
+{
+  "skill_name": "spec-speak",
+  "evals": [
+    {
+      "id": 0,
+      "name": "rough-notes-to-full-spec",
+      "prompt": "I've got some rough notes for a feature on my side project (a recipe-sharing web app). Turn them into a proper spec document and save it as spec.md.\n\nNotes:\n\"Want to add meal-plan export. Users can export their weekly meal plan, probably PDF, maybe also CSV? Should be fast and look nice. Premium users only I think. Need to handle big plans somehow, and probably rate limit it so people don't hammer the server. Also localisation at some point.\"",
+      "expected_output": "A structured spec with narrative problem/summary sections, EARS-shaped requirements each carrying exactly one capitalized RFC 2119 keyword, Gherkin acceptance criteria, an explicit out-of-scope section, and undecided points (PDF vs CSV, 'big plans', 'at some point') surfaced as open questions rather than silently decided.",
+      "files": [],
+      "assertions": [
+        "Requirements follow an EARS shape: ubiquitous, When (event), While (state), If...then (unwanted), or Where (optional feature), each with a named system as actor",
+        "Each requirement contains exactly one capitalized RFC 2119 keyword (MUST/MUST NOT/SHOULD/SHOULD NOT/MAY)",
+        "Undecided points from the notes (CSV yes/no, what counts as a 'big plan', localisation timing) are surfaced as explicit open questions or out-of-scope items, not silently decided",
+        "The vague qualities 'fast' and 'look nice' are quantified with measurable targets or raised as open questions \u2014 the bare adjectives do not appear inside requirements",
+        "The spec contains an explicit out-of-scope / no-gos section",
+        "Requirements have Given/When/Then acceptance scenarios describing observable behaviour"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "tighten-vague-requirements",
+      "prompt": "Here's the requirements section from our internal PRD for a webhook delivery service. My team lead says it's \"too vague to build against\". Rewrite it so it's unambiguous and testable, and save the result as requirements.md.\n\n- The system should deliver webhooks quickly and reliably.\n- Failed webhooks should be retried as appropriate.\n- The dashboard should show relevant delivery stats.\n- Webhooks must be secure.\n- The system should handle a large number of events, etc.",
+      "expected_output": "Rewritten requirements with weak words (quickly, reliably, as appropriate, relevant, secure, large, etc.) eliminated in favour of measurable targets with units, one thought per requirement, active voice with a named actor, and invented numbers flagged as assumptions needing confirmation rather than presented as fact.",
+      "files": [],
+      "assertions": [
+        "No weak words survive inside rewritten requirements: quickly, reliably, as appropriate, relevant, large, etc./and so on are all gone or replaced with measurable criteria",
+        "Performance, retry, and scale claims carry numbers with units (e.g. latency in ms, retry count/backoff schedule, events per second)",
+        "Each requirement expresses a single obligation \u2014 no 'and'/'or' joining two independent obligations in one statement",
+        "Numeric targets invented by the model are flagged as assumptions or questions for the team to confirm, not presented as settled fact",
+        "Requirements use active voice with a named actor and a capitalized RFC 2119 keyword (e.g. 'The delivery service MUST ...')"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ambiguity-trap-slack-thread",
+      "prompt": "Turn this Slack thread into a spec for our note-taking app's offline mode feature. Save it as offline-spec.md.\n\njake: we should let people use the app offline\nme: yeah, at least viewing. editing offline is trickier \u2014 conflicts\njake: maybe last-write-wins? or we could block editing entirely\nme: not sure. also how much do we cache? everything seems like a lot\njake: whatever's easiest",
+      "expected_output": "A spec whose requirements cover only the decided scope (offline viewing), with the conflict-resolution strategy (last-write-wins vs block editing) and cache scope surfaced as explicit open questions with options \u2014 NOT silently resolved by the model picking an answer.",
+      "files": [],
+      "assertions": [
+        "The conflict-resolution choice (last-write-wins vs block offline editing) appears as an explicit open question with the options laid out \u2014 the spec does not silently pick one",
+        "Cache scope ('how much do we cache') is surfaced as an open question or explicit decision-needed item, not silently decided",
+        "Normative requirements only cover the decided scope (offline viewing); no requirement commits the product to a specific conflict strategy",
+        "Requirements that do exist are testable: capitalized modal keyword, named actor, observable behaviour"
+      ]
+    }
+  ]
+}

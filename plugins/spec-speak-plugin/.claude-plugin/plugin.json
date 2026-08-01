@@ -1,0 +1,5 @@
+{
+  "name": "spec-speak-plugin",
+  "description": "Convert rough subject matter into rigorous, testable specs — EARS requirement templates, RFC 2119 keywords, INCOSE/ISO 29148 rules, Gherkin acceptance criteria, zone-aware strictness",
+  "version": "1.0.0"
+}
