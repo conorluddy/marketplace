@@ -1,0 +1,5 @@
+{
+  "name": "app-review-guidelines-plugin",
+  "description": "Audit an iOS codebase against Apple's App Store Review Guidelines, triage rejection messages into fixes and Resolution Center replies, and run a pre-submission checklist — advisory findings with guideline numbers, written to REVIEW-RISK.md",
+  "version": "1.0.0"
+}
