@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "spec-speak-plugin",
+  "version": "1.0.0",
+  "description": "Convert rough subject matter into rigorous, testable specs — EARS requirement templates, RFC 2119 keywords, INCOSE/ISO 29148 rules, Gherkin acceptance criteria, zone-aware strictness",
+  "author": {
+    "name": "Conor Luddy"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "github-labels-plugin",
+  "version": "1.0.0",
+  "description": "Set up structured GitHub issue labels for any repository — priority, clarity, risk, blast radius, size, parallelism, sequencing, and type",
+  "author": {
+    "name": "Conor Luddy"
+  }
+}

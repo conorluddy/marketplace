@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "and-then-plugin",
+  "version": "1.0.0",
+  "description": "Ambiguity-first planning — identify and resolve unknowns before committing to a plan",
+  "author": {
+    "name": "Conor Luddy"
+  }
+}

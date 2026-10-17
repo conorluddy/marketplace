@@ -1,6 +1,6 @@
 ---
 name: team-work
-description: Decompose the current session's jobs-to-be-done into a parallelizable task plan for an agent team. Assigns each task a model tier (haiku / sonnet / opus) and a specialist subagent when one fits. Organises work into dependency waves with no shared-file edits inside a wave to avoid merge conflicts. Use this skill whenever the user says "team this up", "use a team", "use agent teams", "delegate this", "split this work", "parallelize this", "fan this out", "divide and conquer", or otherwise asks to coordinate multiple agents on work already discussed in the session. Also trigger when the user says a task is big and wants help farming it out, or when they explicitly invoke /team-work.
+description: Decompose the current session's jobs-to-be-done into a parallelizable task plan for an agent team. Assigns each task a model tier (fast / balanced / deep) and a specialist sub-agent when one fits. Organises work into dependency waves with no shared-file edits inside a wave to avoid merge conflicts. Use this skill whenever the user says "team this up", "use a team", "use agent teams", "delegate this", "split this work", "parallelize this", "fan this out", "divide and conquer", or otherwise asks to coordinate multiple agents on work already discussed in the session. Also trigger when the user says a task is big and wants help farming it out, or when they explicitly invoke team-work.
 ---
 
 # team-work
@@ -22,7 +22,7 @@ The **source of truth** for jobs-to-be-done is the **current conversation**. If 
 
 A single markdown plan with two things:
 
-1. **Task graph** — every atomic task with: id, one-sentence goal, complexity tier, assigned model, assigned subagent (if any), file scope, and prerequisites.
+1. **Task graph** — every atomic task with: id, one-sentence goal, complexity tier, assigned model, assigned sub-agent (if any), file scope, and prerequisites.
 2. **Execution waves** — tasks grouped so everything in a wave can run in parallel without touching the same files or depending on each other.
 
 Then: confirm → spawn the agents.
@@ -59,27 +59,29 @@ If a task isn't atomic, split it. If two tasks are both tiny and touch the same 
 
 ## Step 3 — Assign complexity and model
 
-Use this heuristic. Set `thinking`/effort to match.
+Use this heuristic. Set reasoning effort to match, where the tool exposes it.
 
-| Tier | Model | Thinking | Use for |
+| Tier | Model | Effort | Use for |
 |---|---|---|---|
-| **S** | `haiku` | low | Lookups, single-file reads, mechanical renames, file moves, simple find/replace, formatting, running a known command and reporting output, summarising a file |
-| **M** | `sonnet` | medium | Typical feature work, multi-file edits, focused refactors, writing tests for existing code, implementing a well-specified component, fixing a known bug |
-| **L** | `opus` | high | Architecture decisions, cross-cutting refactors, ambiguous or novel problems, tricky debugging with unclear root cause, design of new systems, security-sensitive review |
+| **S** | fast | low | Lookups, single-file reads, mechanical renames, file moves, simple find/replace, formatting, running a known command and reporting output, summarising a file |
+| **M** | balanced | medium | Typical feature work, multi-file edits, focused refactors, writing tests for existing code, implementing a well-specified component, fixing a known bug |
+| **L** | deep | high | Architecture decisions, cross-cutting refactors, ambiguous or novel problems, tricky debugging with unclear root cause, design of new systems, security-sensitive review |
 
-Bias toward the cheaper tier when genuinely uncertain — haiku failing fast is cheaper than opus doing trivial work. But don't send opus-shaped problems to sonnet.
+Bias toward the cheaper tier when genuinely uncertain — the fast tier failing fast is cheaper than the deep tier doing trivial work. But don't send deep-tier problems to the balanced tier.
 
-## Step 4 — Pick the right subagent
+**Tool mapping.** Claude Code: fast = `haiku`, balanced = `sonnet`, deep = `opus`. Codex: use whichever models are configured (for example a mini model for fast, the default model for balanced, the strongest for deep). If the tool can't choose a model per sub-agent, keep the tiers in the plan as guidance and say so.
 
-Before defaulting to `general-purpose`, check if a specialist fits. Specialists carry domain context that would otherwise need to be re-derived.
+## Step 4 — Pick the right sub-agent
+
+Before defaulting to a general-purpose agent, check if a specialist fits. Specialists carry domain context that would otherwise need to be re-derived.
 
 Process:
-1. Check the agent list available in this environment (Agent tool's `subagent_type` param).
-2. For each task, match on domain keywords: BJJ content → `bjj-*` family; iOS/SwiftUI → `ios-swift-expert` / `bjj-ios-engineer-inherit`; data pipeline → `bjj-data-engineer-*`; UI review → `grapla-ui-reviewer`; Swift navigation → `swift-navigation-expert`; typography → `typography-grapla-expert`; broad codebase exploration → `Explore`; planning only → `Plan`.
-3. **Simple tasks don't need specialists.** A haiku-tier lookup runs fine on `general-purpose`. Specialists earn their seat when domain nuance matters.
+1. Check the agent list available in this environment (Claude Code: the Agent tool's `subagent_type` values; Codex: custom agents in `.codex/agents/` plus the built-in `default`, `worker` and `explorer`).
+2. For each task, match the task's domain to an agent's name and description (for example an iOS/SwiftUI specialist for SwiftUI work, a data-engineering agent for pipelines, a UI reviewer for design review). Use a read-only explorer agent for broad codebase search and a planner agent for planning only.
+3. **Simple tasks don't need specialists.** A fast-tier lookup runs fine on a general-purpose agent. Specialists earn their seat when domain nuance matters.
 4. Respect the agent's own model preference if its definition pins one — only override when the task clearly warrants it.
 
-If no specialist fits, use `general-purpose` with the chosen model tier.
+If no specialist fits, use a general-purpose agent with the chosen model tier.
 
 ## Step 5 — Build dependency waves
 
@@ -99,7 +101,7 @@ Use this template:
 # Team plan: <short title>
 
 ## Tasks
-- **T1** — <goal>. Tier: S/M/L. Model: haiku/sonnet/opus. Agent: <subagent_type>. Files: <paths/globs>. Deps: none | T?, T?
+- **T1** — <goal>. Tier: S/M/L. Model: fast/balanced/deep. Agent: <agent name>. Files: <paths/globs>. Deps: none | T?, T?
 - **T2** — ...
 
 ## Waves
@@ -117,9 +119,9 @@ Keep it tight. This is a briefing, not a dissertation.
 
 Unless in plan-only mode:
 
-- Spawn every task in a wave in **one message**, parallel `Agent` tool calls.
+- Spawn every task in a wave together so they run in parallel (Claude Code: multiple Agent tool calls in one message; Codex: ask for one sub-agent per task in a single request).
 - Wait for the wave to complete before starting the next (foreground is fine; if tasks are truly independent and long, background is OK).
-- Each agent's prompt must be **self-contained** — it won't see the conversation. Include: what to do, why it matters in context, file paths with line numbers when you have them, constraints from CLAUDE.md / CODESTYLE.md that apply, expected output shape, length cap when useful.
+- Each agent's prompt must be **self-contained** — it won't see the conversation. Include: what to do, why it matters in context, file paths with line numbers when you have them, constraints from the project's instructions file (CLAUDE.md / AGENTS.md) and style docs that apply, expected output shape, length cap when useful.
 - Don't write "based on your research, implement it." — push concrete instructions, not synthesis.
 
 After each wave, briefly report what landed and any surprises before kicking the next wave.
@@ -127,10 +129,10 @@ After each wave, briefly report what landed and any surprises before kicking the
 ## Guardrails
 
 - **Never spawn destructive actions in parallel without confirmation** — DB migrations, `git push`, force-pushes, deletions, external API calls with side effects. Those go in their own wave with user sign-off.
-- **Respect the project's git flow** — per Grapla CLAUDE.md, no pushes to main; fan-outs land on feature branches or `develop`.
+- **Respect the project's git flow** — follow the project's instructions file (e.g. no pushes to main); fan-outs land on feature branches or `develop`.
 - **If agents need to write to the same area, serialize them.** Parallel edits to overlapping files end in tears.
 - **Don't spawn agents for trivial work you can do inline faster.** A single-file edit doesn't need a subagent — the cold-start cost outweighs the parallelism.
-- **Stay inside available agent types.** The Agent tool lists them; don't invent names.
+- **Stay inside available agent types.** Use only the agents the environment lists; don't invent names.
 
 ## Example
 
@@ -142,9 +144,9 @@ Plan:
 # Team plan: Base tab streak + data validator
 
 ## Tasks
-- **T1** — Rename StreakService → StreakTracker across grapla/. Tier: S. Model: haiku. Agent: general-purpose. Files: grapla/**/*.swift. Deps: none.
-- **T2** — Add EmptyStateCard to Base tab streak section when no sessions logged. Tier: M. Model: sonnet. Agent: bjj-ios-engineer-inherit. Files: grapla/Features/App/Views/BaseTab*.swift. Deps: T1.
-- **T3** — Add Zod validator for new `lever_points` field in position schema. Tier: M. Model: sonnet. Agent: bjj-data-engineer-inherit. Files: data/schemas/seed-models/position/enrichment-fields.ts, data/sources/positions/*.json sample. Deps: none.
+- **T1** — Rename StreakService → StreakTracker across the app target. Tier: S. Model: fast. Agent: general-purpose. Files: App/**/*.swift. Deps: none.
+- **T2** — Add EmptyStateCard to Base tab streak section when no sessions logged. Tier: M. Model: balanced. Agent: iOS/SwiftUI specialist. Files: App/Features/Views/BaseTab*.swift. Deps: T1.
+- **T3** — Add Zod validator for new `lever_points` field in position schema. Tier: M. Model: balanced. Agent: data-engineering specialist. Files: data/schemas/seed-models/position/enrichment-fields.ts, data/sources/positions/*.json sample. Deps: none.
 
 ## Waves
 - **Wave 1** (parallel): T1, T3
@@ -154,4 +156,4 @@ Plan:
 T2 waits on T1 because the streak view references the renamed type. T3 is fully independent of the iOS work.
 ```
 
-Then confirm and spawn Wave 1 as two parallel Agent calls.
+Then confirm and spawn Wave 1 as two parallel sub-agents.

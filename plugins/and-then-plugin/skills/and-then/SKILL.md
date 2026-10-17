@@ -13,7 +13,7 @@ Use this skill when the user wants to plan a feature, scope out work, or think t
 
 ## How It Works
 
-Gathers project context silently (CLAUDE.md, recent PRs, codebase), extracts every ambiguity categorized as blocking or refinement, resolves what it can from code, then asks the user targeted questions until blocking ambiguity hits zero. Outputs issues, epics, or plan files matched to the scope of the work.
+Gathers project context silently (project instructions file such as CLAUDE.md or AGENTS.md, recent PRs, codebase), extracts every ambiguity categorized as blocking or refinement, resolves what it can from code, then asks the user targeted questions until blocking ambiguity hits zero. Outputs issues, epics, or plan files matched to the scope of the work.
 
 ## Why This Exists
 
@@ -29,7 +29,7 @@ Before asking the user a single question, build a mental model of the project an
 
 #### What to gather
 
-1. **Project context** — Read CLAUDE.md, MEMORY.md, and any domain-specific docs they reference. Understand the project's architecture, conventions, and current state.
+1. **Project context** — Read the project instructions file (CLAUDE.md or AGENTS.md), any memory or notes file the tool keeps, and any domain-specific docs they reference. Understand the project's architecture, conventions, and current state.
 
 2. **Recent work** — Understand what's been happening lately:
    ```bash
@@ -41,7 +41,7 @@ Before asking the user a single question, build a mental model of the project an
    ```bash
    gh issue list --state open --limit 30 --json title,number,labels,body
    ```
-   Also check for plan files (e.g., `~/.claude/plans/`) or similar project-management artifacts.
+   Also check for plan files (e.g., the tool's plans directory or `docs/plans/`) or similar project-management artifacts.
 
 4. **Codebase exploration** — Glob and grep the areas the request touches. Read key files — models, services, views. Understand the current state before proposing a future state.
 
@@ -170,7 +170,7 @@ If existing issues or plans overlap with this work:
 
 Don't assume GitHub Issues. Check for signals:
 - `gh` CLI available? GitHub Issues is likely.
-- Linear, Jira, or other references in CLAUDE.md or conversation? Use those.
+- Linear, Jira, or other references in the project instructions file or conversation? Use those.
 - If unclear, ask: "Where do you track issues — GitHub, Linear, something else?"
 
 #### Writing the output
@@ -209,7 +209,7 @@ When producing issues or plans:
 
 4. For **epics**, create the parent first, then atomic child issues — each independently deliverable. Each child references the parent.
 
-5. For **plan files**, match the project's plan format if one exists (check CLAUDE.md for conventions).
+5. For **plan files**, match the project's plan format if one exists (check the project instructions file for conventions).
 
 ## Tone
 

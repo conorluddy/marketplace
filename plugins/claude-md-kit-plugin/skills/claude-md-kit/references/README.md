@@ -20,4 +20,4 @@ Planned (candidates, not committed):
 - `project-navigation.md`
 - `git-workflow.md`
 
-Each module is a standalone `.md` file, stack-agnostic, short enough to paste directly into a CLAUDE.md.
+Each module is a standalone `.md` file, stack-agnostic, short enough to paste directly into an AGENTS.md or CLAUDE.md.

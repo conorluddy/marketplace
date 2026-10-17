@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "team-work-plugin",
+  "version": "1.0.0",
+  "description": "Decompose a session's jobs-to-be-done into a parallelizable task plan for an agent team — tiered models (fast/balanced/deep), specialist sub-agents, dependency waves with no shared-file conflicts",
+  "author": {
+    "name": "Conor Luddy"
+  }
+}

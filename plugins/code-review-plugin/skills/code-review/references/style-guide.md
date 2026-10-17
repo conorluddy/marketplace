@@ -154,7 +154,7 @@ Every token an agent reads is a token it can't use for reasoning.
 
 ## Project Navigation
 
-1. **CLAUDE.md / README.md at root** — system overview, entry points, setup (<200 lines)
+1. **CLAUDE.md / AGENTS.md / README.md at root** — system overview, entry points, setup (<200 lines)
 2. **README.md per major module** — purpose, key decisions, gotchas
 3. **Section comments** in files — group related code
 4. **Function/class docs** — purpose, non-obvious APIs

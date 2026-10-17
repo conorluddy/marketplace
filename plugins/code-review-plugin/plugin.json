@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "code-review-plugin",
+  "version": "1.0.0",
+  "description": "Review code against a style guide focused on progressive disclosure, explicit contracts, agentic patterns, and token economics — produces severity-grouped findings with file:line refs and concrete fixes",
+  "author": {
+    "name": "Conor Luddy"
+  }
+}
