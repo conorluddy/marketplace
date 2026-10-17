@@ -1,6 +1,6 @@
 # claude-md-kit
 
-Composable, stack-agnostic prompt segments for CLAUDE.md files. Each module is a standalone `.md` file covering one convention area (naming, error handling, testing, agentic patterns, a condensed spec-speak, etc.) — paste one directly into a project's CLAUDE.md, or ask Claude to assemble several into a starter file.
+Composable, stack-agnostic prompt segments for AGENTS.md / CLAUDE.md files. Each module is a standalone `.md` file covering one convention area (naming, error handling, testing, agentic patterns, a condensed spec-speak, etc.) — paste one directly into a project's AGENTS.md or CLAUDE.md, or ask your agent to assemble several into a starter file.
 
 ```bash
 /plugin install claude-md-kit-plugin

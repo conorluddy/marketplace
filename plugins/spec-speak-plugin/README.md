@@ -6,7 +6,7 @@ Convert rough subject matter — feature ideas, brain-dumps, Slack threads, loos
 /plugin install spec-speak-plugin
 ```
 
-Then ask Claude to "spec this out", "turn these notes into a spec", "make this testable", or "tighten this doc".
+Then ask your agent to "spec this out", "turn these notes into a spec", "make this testable", or "tighten this doc".
 
 ## What it does
 

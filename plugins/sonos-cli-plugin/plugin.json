@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "sonos-cli-plugin",
+  "version": "1.0.0",
+  "description": "Control Sonos speakers from the CLI — playback, volume, grouping, queue management, and music search",
+  "author": {
+    "name": "Conor Luddy"
+  }
+}

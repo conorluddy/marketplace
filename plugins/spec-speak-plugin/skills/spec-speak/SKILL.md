@@ -33,9 +33,9 @@ Triage every gap in the source material into one of two kinds — they get diffe
 - **Product decisions** — choices only the author can make: scope (is CSV in v1?), gating (premium only?), behaviour under conflict (last-write-wins vs block?). Guessing these silently is the cardinal sin; a wrong guess ships the wrong product.
 - **Engineering parameters** — values a competent engineer can default sensibly: latency targets, retry counts, retention windows, rate limits. Leaving *every* one of these as a blank makes the doc unbuildable; a doc with twelve `[TBD]`s is barely more useful than the vague original.
 
-**When you can ask the author (interactive session with the AskUserQuestion tool): ask.** Batch the highest-impact gaps into one AskUserQuestion call — up to 4 questions, each with 2–4 concrete options and a recommended default marked where you have a view. Put product decisions first; include an engineering parameter only when it materially shapes the design (e.g. sync vs async export). One round of questions for the big calls — don't interrogate the author with a question per blank. Answers go straight into the requirements as settled values; anything the author declines or defers becomes an Open Question.
+**When you can ask the author (interactive session with a structured question tool, e.g. Claude Code's `AskUserQuestion`): ask.** Batch the highest-impact gaps into one question call — up to 4 questions, each with 2–4 concrete options and a recommended default marked where you have a view. Put product decisions first; include an engineering parameter only when it materially shapes the design (e.g. sync vs async export). One round of questions for the big calls — don't interrogate the author with a question per blank. Answers go straight into the requirements as settled values; anything the author declines or defers becomes an Open Question.
 
-**When you can't ask** (no AskUserQuestion tool, headless run, or the long tail of smaller gaps):
+**When you can't ask** (no structured question tool, headless run, or the long tail of smaller gaps):
 
 - Engineering parameters: write a sensible proposed value into the requirement, flagged inline — "MUST return the file within 3 s (p95) `[ASSUMPTION — confirm]`" — and collect all assumptions in a short list the author can sweep through. The requirement's shape is settled; only the number awaits confirmation.
 - Product decisions: never default these. List each under **Open questions** with the options you see and what each implies, and write requirements only for the decided scope.
@@ -153,7 +153,7 @@ distribution of expiry complaints against session age.
   - Rationale: limits exposure of dormant sessions.
 ```
 
-Note what happened: the hedge in the problem statement survived ("we believe… we haven't confirmed"), the vague words became numbers or open questions, and "something looks suspicious" was *not* silently turned into a requirement — it's an unmade decision. In an interactive session, OQ-1 and OQ-2 are exactly what an AskUserQuestion round should put to the author; here they land in Open questions.
+Note what happened: the hedge in the problem statement survived ("we believe… we haven't confirmed"), the vague words became numbers or open questions, and "something looks suspicious" was *not* silently turned into a requirement — it's an unmade decision. In an interactive session, OQ-1 and OQ-2 are exactly what a round of questions should put to the author; here they land in Open questions.
 
 ## Auditing an existing spec
 

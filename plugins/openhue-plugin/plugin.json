@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "openhue-plugin",
+  "version": "1.0.0",
+  "description": "Control Philips Hue lights from the CLI — brightness, color, scenes, and automation via openhue",
+  "author": {
+    "name": "Conor Luddy"
+  }
+}
